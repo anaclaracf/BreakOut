@@ -38,7 +38,8 @@ public class GameManager
 
     public void ChangeState(GameState nextState){
 
-        if(gameState == GameState.ENDGAME && nextState == GameState.GAME) Reset();
+        if(gameState == GameState.ENDGAME && nextState == GameState.GAME) 
+            Reset();
             gameState = nextState;
             changeStateDelegate();
         

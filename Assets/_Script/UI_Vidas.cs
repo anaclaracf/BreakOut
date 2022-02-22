@@ -8,6 +8,7 @@ public class UI_Vidas : MonoBehaviour
     
     Text textComp;
     GameManager gm;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class UI_Vidas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         textComp.text = $"Vidas: {gm.vidas}";
     }
 }

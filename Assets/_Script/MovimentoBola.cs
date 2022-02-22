@@ -11,6 +11,10 @@ public class MovimentoBola : MonoBehaviour
 
     GameManager gm;
 
+    
+    public AudioSource hitSource;
+    // public AudioSource lifeSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,11 @@ public class MovimentoBola : MonoBehaviour
         direcao = new Vector3(dirX, dirY).normalized;
 
         gm = GameManager.GetInstance();
+
+        AudioSource[] sound = GetComponents<AudioSource>();
+        hitSource = sound[0];
+        // lifeSource = sound[1];
+        // lifeSource = GetComponent<AudioSource> ();
 
     }
 
@@ -56,7 +65,9 @@ public class MovimentoBola : MonoBehaviour
         float dirY = Random.Range(2.0f, 5.0f);
 
         direcao = new Vector3(dirX, dirY).normalized;
+        
         gm.vidas--;
+        // lifeSource.Play();
 
         if(gm.vidas <= 0 && gm.gameState == GameManager.GameState.GAME){
             gm.ChangeState(GameManager.GameState.ENDGAME);
@@ -73,6 +84,7 @@ public class MovimentoBola : MonoBehaviour
 
         else if (col.gameObject.CompareTag("Tijolo")){
             direcao = new Vector3(direcao.x, -direcao.y);
+            hitSource.Play();
             gm.pontos++;
         }
 
