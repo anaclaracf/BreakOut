@@ -6,7 +6,7 @@ public class MovimentoBola : MonoBehaviour
 {
     
     [Range(1,15)]
-    public float velocidade = 5.0f;
+    private float velocidade = 5.0f;
     private Vector3 direcao;
 
     GameManager gm;
@@ -36,15 +36,33 @@ public class MovimentoBola : MonoBehaviour
 
         if(space){
 
+            float inputX = Input.GetAxis("Horizontal");
+            transform.position += new Vector3(inputX,0,0) * Time.deltaTime * velocidade;
+
             if( Input.GetKeyDown(KeyCode.Space)){
 
                 float dirX = Random.Range(-5.0f, 5.0f);
                 float dirY = Random.Range(1.0f, 5.0f);
                 direcao = new Vector3(dirX, dirY).normalized;
-
                 space = false;
             }
         }else{
+
+            if( Input.GetKeyDown(KeyCode.S)){
+                if(velocidade == 5.0f){
+                    velocidade = 3.0f;
+                }else{
+                    velocidade = 5.0f;
+                }
+            }
+
+            if( Input.GetKeyDown(KeyCode.F)){
+                if(velocidade == 5.0f){
+                    velocidade = 8.0f;
+                }else{
+                    velocidade = 5.0f;
+                }
+            }
 
             if(gm.gameState != GameManager.GameState.GAME){
                 return;

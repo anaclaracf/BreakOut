@@ -15,9 +15,9 @@ public class UI_FimDeJogo : MonoBehaviour
         gm = GameManager.GetInstance();
 
         if (gm.vidas > 0){
-            message.text = "Você Ganhou!!";
+            message.text = "YOU WIN!";
         }else{
-            message.text = "Você Perdeu!!";
+            message.text = "GAME OVER";
         }
     }
 
