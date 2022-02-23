@@ -12,6 +12,7 @@ public class UI_MenuPrincipal : MonoBehaviour
 
     public void Comecar(){
         gm.ChangeState(GameManager.GameState.GAME);
+        gm.counter = true;
     }
 
     void Start(){}

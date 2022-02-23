@@ -23,6 +23,7 @@ public class UI_FimDeJogo : MonoBehaviour
 
     public void Voltar(){
         gm.ChangeState(GameManager.GameState.GAME);
+        gm.counter = true;
     }
 
     void Start(){}

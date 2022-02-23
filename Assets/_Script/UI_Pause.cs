@@ -13,9 +13,12 @@ public class UI_Pause : MonoBehaviour
 
     public void Retornar(){
         gm.ChangeState(GameManager.GameState.GAME);
+        gm.counter = true;
     }
 
     public void Inicio(){
+        gm.counter = false;
+        gm.tempo = 120;
         gm.ChangeState(GameManager.GameState.MENU);
     }
 
